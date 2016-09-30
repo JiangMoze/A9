@@ -1,0 +1,26 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="A9:war exploded">
+    <output-path>$PROJECT_DIR$/target/A9</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="A9" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: javax.servlet:jstl:1.2" />
+          <element id="library" level="project" name="Maven: javax.servlet:javax.servlet-api:3.1.0" />
+          <element id="library" level="project" name="Maven: com.mchange:c3p0:0.9.5-pre8" />
+          <element id="library" level="project" name="Maven: com.mchange:mchange-commons-java:0.2.7" />
+          <element id="library" level="project" name="Maven: mysql:mysql-connector-java:5.1.36" />
+          <element id="library" level="project" name="Maven: commons-dbcp:commons-dbcp:1.3" />
+          <element id="library" level="project" name="Maven: commons-pool:commons-pool:1.5.4" />
+          <element id="library" level="project" name="Maven: com.alibaba:druid:1.0.5" />
+        </element>
+      </element>
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/target/A9/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="javaee-facet-resources" facet="A9/web/Web" />
+    </root>
+  </artifact>
+</component>
