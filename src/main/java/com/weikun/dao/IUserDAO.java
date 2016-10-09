@@ -6,5 +6,7 @@ import com.weikun.vo.BBSUser;
  * Created by Administrator on 2016/10/9.
  */
 public interface IUserDAO {
-    public boolean login(BBSUser user);
+    public BBSUser login(BBSUser user);
+    public boolean addUser(BBSUser user);
+    public byte[] queryPicByid(int  id);
 }

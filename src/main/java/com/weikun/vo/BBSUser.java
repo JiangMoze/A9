@@ -7,6 +7,16 @@ import java.io.Serializable;
  */
 public class BBSUser implements Serializable{
     private int id;
+    private String path;//头像地址
+
+    public String getPath() {
+        return path;
+    }
+
+    public void setPath(String path) {
+        this.path = path;
+    }
+
     private String username;
     private String password;
     private int pagenum;
