@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="zh">
 <head>
@@ -122,9 +122,15 @@
 							<li class="divider-vertical hidden-phone hidden-tablet"></li>
 							<li class="dropdown"><a href="#" class="dropdown-toggle"
 								data-toggle="dropdown"> 
-										<img src="img/user_avatar.png" alt="请登录" class="user_avatar" /> 
-										游客
-										
+										<img src="img/user_avatar.png" alt="请登录" class="user_avatar" />
+											<c:if test="${sessionScope.user!=null}">
+												${user.username}
+											</c:if>
+											<c:if test="${sessionScope.user==null}">
+												游客
+											</c:if>
+
+
 									<b class="caret"></b></a>
 								<ul class="dropdown-menu">
 									<li><a data-toggle="modal" id="my" 
@@ -324,8 +330,8 @@
 	</script>
 	<script type="text/javascript">
 		$(function() {
-			var username = $.cookie('papaoku'); // 获得cookie
-			var password = $.cookie('papaokp');
+			var username = $.cookie('http://www.papaok.org/username'); // 获得cookie
+			var password = $.cookie('http://www.papaok.org/pwd');
 
 			$('#username').val(username);//设置文本框
 			$('#password').val(password);
