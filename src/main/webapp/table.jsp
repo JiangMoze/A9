@@ -1,9 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8" isELIgnored="false" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <div id="contentwrapper">
 	<div class="main_content">
 		<%@include file="top.jsp" %>
+
+		<c:set value="${requestScope.pb}" var="pb"></c:set>
 
 		
 		<div class="row-fluid">
@@ -61,11 +63,11 @@
 						</tr>
 					</thead>
 					<tbody>
-
+						<c:forEach items="${pb.data}" var="a" varStatus="status">
 						
 								<tr>
 
-									<td></td>
+									<td>${status.count}</td>
 									<td><a href="upload/.jpg"
 										
 										title="" class="cbox_single thumbnail">
@@ -82,17 +84,12 @@
 									
 									
 									<a
-										href=""></a>
-										
-									
-									
-									
-									
+										href="">${a.title}</a>
 									
 									
 									</td>
-									<td></td>
-									<td></td>
+									<td>${a.content}</td>
+									<td>${a.datetime}</td>
 									<td>
 											
 										<!-- 没登陆，游客 uid=0 -->
@@ -119,6 +116,7 @@
 									</td>
 										
 								</tr>
+						</c:forEach>
 							
 					</tbody>
 				</table>
@@ -127,9 +125,9 @@
 
 			</div>
 		</div>
-		
-			<%@include file="page.jsp"%>
-		
+			<c:if test="${pb.maxPage>1}">
+				<%@include file="page.jsp"%>
+			</c:if>
 
 	</div>
 

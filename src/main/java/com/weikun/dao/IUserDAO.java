@@ -9,4 +9,5 @@ public interface IUserDAO {
     public BBSUser login(BBSUser user);
     public boolean addUser(BBSUser user);
     public byte[] queryPicByid(int  id);
+
 }
