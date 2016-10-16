@@ -10,4 +10,6 @@ import java.util.List;
  */
 public interface IArticleDAO {
     public PageBean queryAll(int curPage,int usrid);
+    public boolean addArticle(Article a);
+
 }

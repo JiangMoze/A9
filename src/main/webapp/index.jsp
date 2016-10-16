@@ -9,6 +9,6 @@
         
     </head>
 <body>
-	<% response.sendRedirect("article?curpage=1"); %>
+	<% response.sendRedirect("article?action=page&curpage=1"); %>
 </body>
 </html>

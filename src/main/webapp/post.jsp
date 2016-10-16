@@ -5,7 +5,6 @@
 		<button class="close" data-dismiss="modal"
 			onclick="javascript:document.getElementById('submenu').innerHTML='${txt_ini}'">×</button>
 		<h2>灌水</h2>
-
 		<a href="javascript:void(0)" id="sticky_a"></a> <a
 			href="javascript:void(0)" id="sticky_a1"></a> <a
 			href="javascript:void(0)" id="sticky_a2"></a> <a
@@ -21,13 +20,8 @@
 		<div class="alert alert-info">请不要发布违法信息，否则，你懂得！</div>
 		
 		<jsp:include page="content.jsp">
-			
-			
-			
 			<jsp:param value="" name="userid"/>
-			
 		</jsp:include>
-		
 		
 
 

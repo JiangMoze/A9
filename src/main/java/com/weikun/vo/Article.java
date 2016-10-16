@@ -11,6 +11,15 @@ public class Article implements Serializable {
     private String title;
     private String content;
     private String datetime;
+    private BBSUser user;
+
+    public BBSUser getUser() {
+        return user;
+    }
+
+    public void setUser(BBSUser user) {
+        this.user = user;
+    }
 
     public int getId() {
         return id;

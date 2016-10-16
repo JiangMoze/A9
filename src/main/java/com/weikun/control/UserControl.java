@@ -28,7 +28,7 @@ import java.util.Map;
  */
 @WebServlet(name = "UserControl",urlPatterns ={"/user"},
         initParams = {
-                @WebInitParam(name = "success",value = "/article?curpage=1")
+                @WebInitParam(name = "success",value = "/article?action=page&curpage=1")
 })
 public class UserControl extends HttpServlet {
     private IUserService service=new UserServiceImpl();

@@ -2,8 +2,10 @@ package com.weikun.dao;
 
 import com.weikun.db.DBCPDB;
 import com.weikun.vo.Article;
+import com.weikun.vo.BBSUser;
 import com.weikun.vo.PageBean;
 
+import java.io.StringReader;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -60,11 +62,15 @@ public class ArticleDAOImpl implements IArticleDAO {
 
                 while(rs.next()){
                     Article a=new Article();
+                    BBSUser user=new BBSUser();
+
                     a.setId(rs.getInt("id"));
                     a.setTitle(rs.getString("title"));
                     a.setContent(rs.getString("content"));
                     a.setDatetime(rs.getString("datetime"));
+                    user.setId(rs.getInt("userid"));
 
+                    a.setUser(user);
                     list.add(a);
 
                 }
@@ -94,5 +100,38 @@ public class ArticleDAOImpl implements IArticleDAO {
 
 
         return pb;
+    }
+
+    @Override
+    public boolean addArticle(Article a) {
+        PreparedStatement pstmt=null;
+        boolean flag=false;
+        try {                                             //longtext:clob
+            String sql="insert into article(rootid,title,content,datetime,userid) values(?,?,?,now(),?)";
+            pstmt=conn.prepareStatement(sql);
+            pstmt.setInt(1,a.getRootid());
+            pstmt.setString(2,a.getTitle());
+            pstmt.setInt(4,a.getUser().getId());
+            //操作clob--写
+            String s=a.getContent();
+            StringReader sr=new StringReader(s);
+
+            pstmt.setCharacterStream(3,sr,s.length());
+
+            flag=pstmt.executeUpdate()>0?true:false;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if(pstmt!=null){
+                try {
+                    pstmt.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return flag;
+
     }
 }

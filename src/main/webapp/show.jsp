@@ -140,7 +140,7 @@
 										href="#login" title="登录"
 										onclick="javascript:document.getElementById('submenu').innerHTML='登录'">登录
 									</a></li>
-									<li><a data-toggle="modal" id="my" data-backdrop="static"
+									<li><a data-toggle="modal" id="my1" data-backdrop="static"
 										href="#register" title="注册"
 										onclick="javascript:document.getElementById('submenu').innerHTML='注册'">注册</a>
 
@@ -148,14 +148,19 @@
 									</li>
 
 
+									<c:if test="${sessionScope.user!=null}">
+
+
+
 									
 										<li><a href="#post" title="灌水" data-toggle="modal"
 											id="myp" data-backdrop="static"
-											onclick="javascript:addz();document.getElementById('submenu').innerHTML='灌水'">灌水</a>
+											onclick="addz();document.getElementById('submenu').innerHTML='灌水'">灌水</a>
 											
 
 
 										</li>
+									</c:if>
 									
 									<li class="divider"></li>
 									<li><a href="loginout.jsp"
@@ -424,7 +429,7 @@
 			   
 		   }
 		   //发主贴
- 		   if($("#postrootaction").val()==='add'){//主帖
+ 		   if($("#postrootaction").val()==='addz'){//主帖
  			  $('#addarticle').submit();
 			   
 		   }
@@ -447,7 +452,7 @@
 			
 			$("#postrootid").val(0);
 			//发主帖标志
-			$('#postrootaction').val('add');
+			$('#postrootaction').val('addz');
 			
 		}
 		

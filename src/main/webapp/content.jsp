@@ -1,7 +1,7 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 
 <form name="addarticle" id="addarticle" 
-	action=""
+	action="article"
 	method="post">
 	<table style="width: 500px; height: auto;">
 		<tr>
@@ -12,11 +12,11 @@
 				<!-- 有 id就是回帖 -->
 				
 				
-					<input type="hidden" id="postrootaction" name="action" value="add" />
+					<input type="hidden" id="postrootaction" name="action" value="addz" />
 					<input type="hidden" id="postrootid" name="rootid" value="" />
 				
 				
-					<input type="hidden" name="userid" id="userid" value="${param.userid}" />
+					<input type="hidden" name="userid" id="userid" value="${sessionScope.user.id}" />
 				
 				</td>
 		</tr>
