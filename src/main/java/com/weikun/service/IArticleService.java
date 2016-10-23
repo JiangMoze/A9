@@ -9,4 +9,5 @@ import com.weikun.vo.PageBean;
 public interface IArticleService {
     public PageBean queryAll(int curPage, int usrid) ;
     public boolean addArticle(Article a) ;
+    public boolean delArticle(int id) ;
 }

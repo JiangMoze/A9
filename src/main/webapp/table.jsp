@@ -72,7 +72,7 @@
 										
 										title="" class="cbox_single thumbnail">
 
-											<img src="UserControl?action=pic&id="
+											<img src="user?action=read&id=${a.user.id}"
 											alt="" style="height: 50px; width: 50px" />
 
 									</a>
@@ -105,12 +105,13 @@
 											
 										
 											<!-- 是本人贴可以删除和修改 -->
-											
-											<a
-												href=""
-												title="删除本帖"><i class="icon-trash"></i></a>
+											<c:set value="${sessionScope.user.id}" var="uid"></c:set>
+											<c:if test="${sessionScope.user!=null&&uid==a.user.id}">
+												<a
+													href="article?action=delz&id=${a.id}"
+													title="删除本帖"><i class="icon-trash"></i></a>
 
-										
+											</c:if>
 										
 										
 									</td>

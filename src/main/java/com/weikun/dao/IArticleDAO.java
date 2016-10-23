@@ -11,5 +11,6 @@ import java.util.List;
 public interface IArticleDAO {
     public PageBean queryAll(int curPage,int usrid);
     public boolean addArticle(Article a);
+    public boolean delArticle(int id);//id 主帖子的主键
 
 }

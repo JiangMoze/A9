@@ -37,7 +37,28 @@ public class ArticleControl extends HttpServlet {
 
                 addz(request, response);
                 break;
+            case "delz"://删除主贴
+                del(request, response);
+                break;
         }
+    }
+
+    private void del(HttpServletRequest request, HttpServletResponse response) {
+
+        String id=request.getParameter("id");//帖子主键
+
+        if(service.delArticle(Integer.parseInt(id))){//删除成功
+            RequestDispatcher dispatcher=request.getRequestDispatcher("article?action=page&curpage=1");
+            try {
+                dispatcher.forward(request,response);
+            } catch (ServletException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+        }
+
     }
 
     private void addz(HttpServletRequest request, HttpServletResponse response) {

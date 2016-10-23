@@ -134,4 +134,30 @@ public class ArticleDAOImpl implements IArticleDAO {
         return flag;
 
     }
+
+    @Override
+    public boolean delArticle(int id) {
+        PreparedStatement pstmt=null;
+        boolean flag=false;
+        try {
+            String sql="delete from article where id=? or rootid=?";//删除主贴，从贴也必须删除
+            pstmt=conn.prepareStatement(sql);
+            pstmt.setInt(1,id);
+            pstmt.setInt(2,id);
+            flag=pstmt.executeUpdate()>0?true:false;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if(pstmt!=null){
+                try {
+                    pstmt.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
+        return flag;
+    }
 }
