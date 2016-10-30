@@ -486,7 +486,7 @@
 			  var footer="";
 			  
 			 
-			  $(data.list).each(function(i){					  
+			  $(data.list).each(function(i){
 			      //var info = comment.root; 
 			      //遍历rshow页的<div id="tab_head">
 			      //和<div id="tab_content">内容
@@ -557,21 +557,22 @@
 		
 		//显示回帖的ajax
 		function rshow(id,uid,duid) {
-			//id主贴 uid:浏览用户  duid:本帖id
+			//id主贴 uid:浏览用户idid  dui回复本帖的用户id
 			//显示回帖,用AJAX技术
 			 //把该帖子的id值付给rshow model下的隐藏字段
 			  $("#rshowid").val(id);
 			//把该主帖子的id值付给post model下的隐藏字段，代表该贴是子贴
 			  $("#postrootid").val(id);
-			
+
 			 $.ajax({
 				  type: "post",
-				  url: "ArticleControl",	
+				  url: "article",
 				  data:"action=queryid&id="+id,
 				  dataType: "text json",
 				  success : function(data){	
 					  //显示回帖内容，并且显示在model窗体中
-					 showhuitie(id,uid,duid,data);
+
+					showhuitie(id,uid,duid,data);
 					  
 				  }		  
 	         });

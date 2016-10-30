@@ -63,6 +63,7 @@
 						</tr>
 					</thead>
 					<tbody>
+					<c:set value="${sessionScope.user.id}" var="uid"></c:set>
 						<c:forEach items="${pb.data}" var="a" varStatus="status">
 						
 								<tr>
@@ -95,9 +96,9 @@
 										<!-- 没登陆，游客 uid=0 -->
 												
 											<!-- 锚点传值 -->
-											<a href="" title="灌水" data-toggle="modal"
+											<a href="#rshow" title="灌水" data-toggle="modal"
 											id="myp" data-backdrop="static"
-											onclick="rshow(${data.id},${uid},${data.user.id});">
+											onclick="rshow(${a.id},${uid},${a.user.id});">
 												 <i class="icon-eye-open"></i>
 											
 											</a>
@@ -105,7 +106,7 @@
 											
 										
 											<!-- 是本人贴可以删除和修改 -->
-											<c:set value="${sessionScope.user.id}" var="uid"></c:set>
+
 											<c:if test="${sessionScope.user!=null&&uid==a.user.id}">
 												<a
 													href="article?action=delz&id=${a.id}"

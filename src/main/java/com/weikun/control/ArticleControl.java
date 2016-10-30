@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 /**
  * Created by Administrator on 2016/10/12.
@@ -39,6 +40,23 @@ public class ArticleControl extends HttpServlet {
                 break;
             case "delz"://删除主贴
                 del(request, response);
+                break;
+            case "queryid"://回贴
+                String id=request.getParameter("id");//主贴id
+
+
+                String json=service.queryReplay(Integer.parseInt(id));
+
+
+                response.setCharacterEncoding("utf-8");;
+                response.setContentType("text/html");
+                PrintWriter out=response.getWriter();
+                out.print(json);
+
+                out.flush();
+                out.close();
+
+
                 break;
         }
     }

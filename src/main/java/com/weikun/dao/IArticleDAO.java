@@ -13,4 +13,11 @@ public interface IArticleDAO {
     public boolean addArticle(Article a);
     public boolean delArticle(int id);//id 主帖子的主键
 
+    /**
+     *
+     * @param id:主贴的id
+     * @return：所有该主贴的回帖
+     */
+    public List<Article> queryReplay(int id);
+
 }

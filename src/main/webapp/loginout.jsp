@@ -4,8 +4,8 @@
     session.invalidate();
 
 %>
-<%
 
-    response.sendRedirect("show.jsp");
 
-%>
+<% response.sendRedirect("article?action=page&curpage=1"); %>
+
+

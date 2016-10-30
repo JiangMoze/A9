@@ -160,4 +160,58 @@ public class ArticleDAOImpl implements IArticleDAO {
 
         return flag;
     }
+
+    @Override
+    public List<Article> queryReplay(int id) {
+        PreparedStatement pstmt=null;
+        ResultSet rs=null;
+        List<Article> list=new ArrayList<Article>();
+        try {
+            String sql="select * from article a \n" +
+                    "inner join (bbsuser u) on(a.userid=u.id) \n" +
+                    "where  a.id=?";
+            pstmt=conn.prepareStatement(sql);
+            pstmt.setInt(1,id);
+
+
+            rs=pstmt.executeQuery();
+
+            while(rs.next()){
+                Article a=new Article();
+                a.setId(rs.getInt("a.id"));
+                a.setContent(rs.getString("a.content"));
+                a.setTitle(rs.getString("a.title"));
+                a.setRootid(rs.getInt("a.rootid"));
+
+                BBSUser user=new BBSUser();
+                user.setId(rs.getInt("a.userid"));
+
+
+                a.setUser(user);
+                list.add(a);
+            }
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if(rs!=null){
+                try {
+                    rs.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            if(pstmt!=null){
+                try {
+                    pstmt.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
+
+        return list;
+    }
 }
