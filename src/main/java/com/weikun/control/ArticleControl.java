@@ -38,8 +38,15 @@ public class ArticleControl extends HttpServlet {
 
                 addz(request, response);
                 break;
+            case "reply"://回复从贴
+
+                addz(request, response);
+                break;
             case "delz"://删除主贴
-                del(request, response);
+                delz(request, response);
+                break;
+            case "delc"://删除从贴
+                delc(request, response);
                 break;
             case "queryid"://回贴
                 String id=request.getParameter("id");//主贴id
@@ -61,11 +68,11 @@ public class ArticleControl extends HttpServlet {
         }
     }
 
-    private void del(HttpServletRequest request, HttpServletResponse response) {
+    private void delz(HttpServletRequest request, HttpServletResponse response) {
 
         String id=request.getParameter("id");//帖子主键
 
-        if(service.delArticle(Integer.parseInt(id))){//删除成功
+        if(service.delZArticle(Integer.parseInt(id))){//删除成功
             RequestDispatcher dispatcher=request.getRequestDispatcher("article?action=page&curpage=1");
             try {
                 dispatcher.forward(request,response);
@@ -78,7 +85,23 @@ public class ArticleControl extends HttpServlet {
         }
 
     }
+    private void delc(HttpServletRequest request, HttpServletResponse response) {
 
+        String id=request.getParameter("id");//帖子主键
+        String rootid=request.getParameter("rootid");//主贴id
+        if(service.delCArticle(Integer.parseInt(id))){//删除成功
+            RequestDispatcher  dispatcher=request.getRequestDispatcher("article?action=queryid&id="+rootid);
+            try {
+                dispatcher.forward(request,response);
+            } catch (ServletException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+        }
+
+    }
     private void addz(HttpServletRequest request, HttpServletResponse response) {
         String rootid=request.getParameter("rootid");
         Article a=new Article();
@@ -87,12 +110,16 @@ public class ArticleControl extends HttpServlet {
         a.setContent(request.getParameter("content"));
         BBSUser user=(BBSUser)request.getSession().getAttribute("user");
 
-
         a.setUser(user);
 
         if(service.addArticle(a)){
+            RequestDispatcher dispatcher=null;
+            if(rootid.equals("0")){//主贴
+                dispatcher=request.getRequestDispatcher("article?action=page&curpage=1");
 
-            RequestDispatcher dispatcher=request.getRequestDispatcher("article?action=page&curpage=1");
+            }else{
+                dispatcher=request.getRequestDispatcher("article?action=queryid&id="+rootid);
+            }
             try {
                 dispatcher.forward(request,response);
             } catch (ServletException e) {
@@ -100,6 +127,7 @@ public class ArticleControl extends HttpServlet {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+
         }
 
     }

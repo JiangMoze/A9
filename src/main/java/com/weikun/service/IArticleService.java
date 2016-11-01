@@ -11,6 +11,7 @@ import java.util.List;
 public interface IArticleService {
     public PageBean queryAll(int curPage, int usrid) ;
     public boolean addArticle(Article a) ;
-    public boolean delArticle(int id) ;
+    public boolean delZArticle(int id) ;
+    public boolean delCArticle(int id) ;
     public String queryReplay(int id) ;
 }

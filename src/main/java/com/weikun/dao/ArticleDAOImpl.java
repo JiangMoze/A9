@@ -4,6 +4,7 @@ import com.weikun.db.DBCPDB;
 import com.weikun.vo.Article;
 import com.weikun.vo.BBSUser;
 import com.weikun.vo.PageBean;
+import com.weikun.vo.ReArticle;
 
 import java.io.StringReader;
 import java.sql.*;
@@ -136,7 +137,7 @@ public class ArticleDAOImpl implements IArticleDAO {
     }
 
     @Override
-    public boolean delArticle(int id) {
+    public boolean delZArticle(int id) {
         PreparedStatement pstmt=null;
         boolean flag=false;
         try {
@@ -160,37 +161,70 @@ public class ArticleDAOImpl implements IArticleDAO {
 
         return flag;
     }
-
     @Override
-    public List<Article> queryReplay(int id) {
+    public boolean delCArticle(int id) {
         PreparedStatement pstmt=null;
-        ResultSet rs=null;
-        List<Article> list=new ArrayList<Article>();
+        boolean flag=false;
         try {
-            String sql="select * from article a \n" +
-                    "inner join (bbsuser u) on(a.userid=u.id) \n" +
-                    "where  a.id=?";
+            String sql="delete from article where id=? ";//
             pstmt=conn.prepareStatement(sql);
             pstmt.setInt(1,id);
 
+            flag=pstmt.executeUpdate()>0?true:false;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if(pstmt!=null){
+                try {
+                    pstmt.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
+        return flag;
+    }
+    @Override
+    public ReArticle queryReplay(int id) {
+        PreparedStatement pstmt=null;
+        ResultSet rs=null;
+        ReArticle re=new ReArticle();
+        try {
+            String sql="select p.title,t.* \n" +
+                    " from \n" +
+                    "\t(select a.id,a.title,a.content,a.userid,a.rootid from article a \n" +
+                    "\tinner join (bbsuser u) on(a.userid=u.id) \n" +
+                    "\twhere  a.rootid=? ) t,article p \n" +
+                    " where p.id=?";
+            pstmt=conn.prepareStatement(sql);
+            pstmt.setInt(1,id);
+            pstmt.setInt(2,id);
+
 
             rs=pstmt.executeQuery();
-
+            List<Article> list1=new ArrayList<>();
             while(rs.next()){
+                re.setTitle(rs.getString("p.title"));//主贴title
+
                 Article a=new Article();
-                a.setId(rs.getInt("a.id"));
-                a.setContent(rs.getString("a.content"));
-                a.setTitle(rs.getString("a.title"));
-                a.setRootid(rs.getInt("a.rootid"));
+                a.setId(rs.getInt("t.id"));
+                a.setContent(rs.getString("t.content"));
+                a.setTitle(rs.getString("t.title"));
+                a.setRootid(rs.getInt("t.rootid"));
 
                 BBSUser user=new BBSUser();
-                user.setId(rs.getInt("a.userid"));
+                user.setId(rs.getInt("t.userid"));
 
 
                 a.setUser(user);
-                list.add(a);
+                list1.add(a);
+
+
             }
 
+            re.setList(list1);
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -212,6 +246,6 @@ public class ArticleDAOImpl implements IArticleDAO {
         }
 
 
-        return list;
+        return re;
     }
 }
