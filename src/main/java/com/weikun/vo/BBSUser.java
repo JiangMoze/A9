@@ -3,11 +3,18 @@ package com.weikun.vo;
 import java.io.Serializable;
 
 /**
- * Created by Administrator on 2016/10/9.
+ * Created with IntelliJ IDEA.
+ * Description: User对象 携带用户对象的信息
+ * User: Moze
+ * Date: 2017-01-09
+ * Time: 20:02
  */
 public class BBSUser implements Serializable{
     private int id;
     private String path;//头像地址
+    private String username;
+    private String password;
+    private int pagenum;//分页数
 
     public String getPath() {
         return path;
@@ -16,10 +23,6 @@ public class BBSUser implements Serializable{
     public void setPath(String path) {
         this.path = path;
     }
-
-    private String username;
-    private String password;
-    private int pagenum;
 
     public int getId() {
         return id;

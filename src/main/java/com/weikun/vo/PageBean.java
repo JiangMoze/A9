@@ -4,7 +4,11 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
- * Created by Administrator on 2016/10/12.
+ * Created with IntelliJ IDEA.
+ * Description: Page对象 携带分页信息
+ * User: Moze
+ * Date: 2017-01-09
+ * Time: 20:06
  */
 public class PageBean implements Serializable{
     private int curPage;//当前是第几页

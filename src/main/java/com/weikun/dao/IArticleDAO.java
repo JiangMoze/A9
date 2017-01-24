@@ -4,21 +4,22 @@ import com.weikun.vo.Article;
 import com.weikun.vo.PageBean;
 import com.weikun.vo.ReArticle;
 
-import java.util.List;
-
 /**
- * Created by Administrator on 2016/10/12.
+ * Created with IntelliJ IDEA.
+ * Description: DAO层Article接口  提供发帖回帖和删除功能
+ * User: Moze
+ * Date: 2017-01-09
+ * Time: 20:08
  */
 public interface IArticleDAO {
-    public PageBean queryAll(int curPage,int usrid);
-    public boolean addArticle(Article a);
-    public boolean delZArticle(int id);//id 主帖子的主键
-    public boolean delCArticle(int id);//ids 删除从贴
-       /**
-     *
-     * @param id:主贴的id
-     * @return：所有该主贴的回帖
-     */
-    public ReArticle queryReplay(int id);
+    public PageBean queryAll(int curPage, int usrid);//查询主贴
+
+    public boolean addArticle(Article a);//发帖
+
+    public boolean delZArticle(int id);//删除主贴
+
+    public boolean delCArticle(int id);//删除从贴
+
+    public ReArticle queryReplay(int id);//查询从贴
 
 }

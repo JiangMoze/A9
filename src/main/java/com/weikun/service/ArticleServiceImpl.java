@@ -12,13 +12,18 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Created by Administrator on 2016/10/12.
+ * Created with IntelliJ IDEA.
+ * Description: Article服务的实现 调用DAO功能
+ * User: Moze
+ * Date: 2017-01-13
+ * Time: 18:01
  */
-public class ArticleServiceImpl implements  IArticleService {
-    private IArticleDAO dao=new ArticleDAOImpl();
+public class ArticleServiceImpl implements IArticleService {
+    private IArticleDAO dao = new ArticleDAOImpl();
+
     @Override
     public PageBean queryAll(int curPage, int usrid) {
-        return dao.queryAll(curPage,usrid);
+        return dao.queryAll(curPage, usrid);
     }
 
     @Override
@@ -38,16 +43,10 @@ public class ArticleServiceImpl implements  IArticleService {
 
     @Override
     public String queryReplay(int id) {
-
-        ReArticle re=dao.queryReplay(id);
-
-        Map<String,Object> map=new HashMap<String,Object> ();
-
-        map.put("title",re.getTitle());
-        map.put("list",re.getList());
-
-
-
-        return JSON.toJSONString(map,true);
+        ReArticle re = dao.queryReplay(id);
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("title", re.getTitle());
+        map.put("list", re.getList());
+        return JSON.toJSONString(map, true);
     }
 }

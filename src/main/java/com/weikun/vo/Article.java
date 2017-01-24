@@ -3,7 +3,11 @@ package com.weikun.vo;
 import java.io.Serializable;
 
 /**
- * Created by Administrator on 2016/10/12.
+ * Created with IntelliJ IDEA.
+ * Description: Article对象 存储主贴或从贴 并携带发布人信息
+ * User: Moze
+ * Date: 2017-01-09
+ * Time: 20:01
  */
 public class Article implements Serializable {
     private int id;

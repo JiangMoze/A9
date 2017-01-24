@@ -4,7 +4,11 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
- * Created by Administrator on 2016/11/1.
+ * Created with IntelliJ IDEA.
+ * Description: ReArticle对象
+ * User: Moze
+ * Date: 2017-01-09
+ * Time: 20:05
  */
 public class ReArticle implements Serializable{
     private String title;//主贴title
