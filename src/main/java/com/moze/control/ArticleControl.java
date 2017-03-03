@@ -1,11 +1,10 @@
-package com.weikun.control;
+package com.moze.control;
 
-import com.weikun.service.ArticleServiceImpl;
-import com.weikun.service.IArticleService;
-import com.weikun.vo.Article;
-import com.weikun.vo.BBSUser;
-import com.weikun.vo.PageBean;
-import org.omg.CORBA.Request;
+import com.moze.service.ArticleServiceImpl;
+import com.moze.service.IArticleService;
+import com.moze.vo.Article;
+import com.moze.vo.BBSUser;
+import com.moze.vo.PageBean;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;

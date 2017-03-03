@@ -1,20 +1,9 @@
-package com.weikun.service;
+package com.moze.service;
 
-import com.sun.org.apache.bcel.internal.generic.IUSHR;
-import com.weikun.dao.IUserDAO;
-import com.weikun.dao.UserDAOImpl;
-import com.weikun.vo.BBSUser;
+import com.moze.dao.IUserDAO;
+import com.moze.dao.UserDAOImpl;
+import com.moze.vo.BBSUser;
 import org.apache.commons.fileupload.FileItemIterator;
-import org.apache.commons.fileupload.FileItemStream;
-import org.apache.commons.fileupload.FileUploadException;
-import org.apache.commons.fileupload.disk.DiskFileItemFactory;
-import org.apache.commons.fileupload.servlet.ServletFileUpload;
-import org.apache.commons.fileupload.util.Streams;
-
-import java.io.*;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.UUID;
 
 /**
  * Created with IntelliJ IDEA.

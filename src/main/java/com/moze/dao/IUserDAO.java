@@ -1,6 +1,6 @@
-package com.weikun.dao;
+package com.moze.dao;
 
-import com.weikun.vo.BBSUser;
+import com.moze.vo.BBSUser;
 import org.apache.commons.fileupload.FileItemIterator;
 
 /**

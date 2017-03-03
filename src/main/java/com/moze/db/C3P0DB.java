@@ -1,4 +1,4 @@
-package com.weikun.db;
+package com.moze.db;
 
 import com.mchange.v2.c3p0.ComboPooledDataSource;
 import org.junit.Test;

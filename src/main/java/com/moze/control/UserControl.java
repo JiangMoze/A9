@@ -1,8 +1,8 @@
-package com.weikun.control;
+package com.moze.control;
 
-import com.weikun.service.IUserService;
-import com.weikun.service.UserServiceImpl;
-import com.weikun.vo.BBSUser;
+import com.moze.service.IUserService;
+import com.moze.service.UserServiceImpl;
+import com.moze.vo.BBSUser;
 import org.apache.commons.fileupload.FileItemIterator;
 import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;

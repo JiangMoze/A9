@@ -1,10 +1,10 @@
-package com.weikun.dao;
+package com.moze.dao;
 
-import com.weikun.db.DBCPDB;
-import com.weikun.vo.Article;
-import com.weikun.vo.BBSUser;
-import com.weikun.vo.PageBean;
-import com.weikun.vo.ReArticle;
+import com.moze.db.DBCPDB;
+import com.moze.vo.Article;
+import com.moze.vo.BBSUser;
+import com.moze.vo.PageBean;
+import com.moze.vo.ReArticle;
 
 import java.io.StringReader;
 import java.sql.*;

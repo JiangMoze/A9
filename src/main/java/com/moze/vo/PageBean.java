@@ -1,4 +1,4 @@
-package com.weikun.vo;
+package com.moze.vo;
 
 import java.io.Serializable;
 import java.util.ArrayList;

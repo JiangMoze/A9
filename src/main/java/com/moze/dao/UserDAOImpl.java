@@ -1,7 +1,7 @@
-package com.weikun.dao;
+package com.moze.dao;
 
-import com.weikun.db.DruidDB;
-import com.weikun.vo.BBSUser;
+import com.moze.db.DruidDB;
+import com.moze.vo.BBSUser;
 import org.apache.commons.fileupload.FileItemIterator;
 import org.apache.commons.fileupload.FileItemStream;
 import org.apache.commons.fileupload.FileUploadException;

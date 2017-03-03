@@ -1,14 +1,13 @@
-package com.weikun.service;
+package com.moze.service;
 
 import com.alibaba.fastjson.JSON;
-import com.weikun.dao.ArticleDAOImpl;
-import com.weikun.dao.IArticleDAO;
-import com.weikun.vo.Article;
-import com.weikun.vo.PageBean;
-import com.weikun.vo.ReArticle;
+import com.moze.dao.ArticleDAOImpl;
+import com.moze.dao.IArticleDAO;
+import com.moze.vo.Article;
+import com.moze.vo.PageBean;
+import com.moze.vo.ReArticle;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 /**

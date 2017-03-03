@@ -1,4 +1,4 @@
-package com.weikun.db;
+package com.moze.db;
 
 import com.alibaba.druid.pool.DruidDataSourceFactory;
 import org.junit.Test;

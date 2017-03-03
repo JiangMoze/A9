@@ -1,6 +1,6 @@
-package com.weikun.service;
+package com.moze.service;
 
-import com.weikun.vo.BBSUser;
+import com.moze.vo.BBSUser;
 import org.apache.commons.fileupload.FileItemIterator;
 
 /**

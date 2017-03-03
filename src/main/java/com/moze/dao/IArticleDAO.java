@@ -1,8 +1,8 @@
-package com.weikun.dao;
+package com.moze.dao;
 
-import com.weikun.vo.Article;
-import com.weikun.vo.PageBean;
-import com.weikun.vo.ReArticle;
+import com.moze.vo.Article;
+import com.moze.vo.PageBean;
+import com.moze.vo.ReArticle;
 
 /**
  * Created with IntelliJ IDEA.

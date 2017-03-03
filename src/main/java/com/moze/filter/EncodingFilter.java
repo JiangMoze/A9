@@ -1,4 +1,4 @@
-package com.weikun.filter;
+package com.moze.filter;
 import  javax.servlet.annotation.*;
 
 /**

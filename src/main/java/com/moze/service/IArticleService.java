@@ -1,9 +1,7 @@
-package com.weikun.service;
+package com.moze.service;
 
-import com.weikun.vo.Article;
-import com.weikun.vo.PageBean;
-
-import java.util.List;
+import com.moze.vo.Article;
+import com.moze.vo.PageBean;
 
 /**
  * Created with IntelliJ IDEA.

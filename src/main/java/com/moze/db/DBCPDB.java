@@ -1,4 +1,4 @@
-package com.weikun.db;
+package com.moze.db;
 
 import org.apache.commons.dbcp.BasicDataSourceFactory;
 import org.junit.Test;
